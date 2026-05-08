@@ -59,17 +59,25 @@ function Team() {
               طِيب العَمد
             </h2>
             <p className="text-deep/60 font-display font-bold mt-1 text-lg">
-              Teeb Alamad — Social Media Manager & Content Creator
+              Teeb Alamad — Content Writer & Content Strategist
             </p>
-            <p className="mt-6 text-deep/85 leading-relaxed">
-              I’m a creative social media strategist with a passion for
-              storytelling, human connection, and turning simple ideas into
-              meaningful content. I’m curious by nature, observant, and love
-              exploring how digital platforms can become spaces for growth,
-              expression, and opportunity — not just noise. Currently based in
-              Dubai, I’m always inspired by culture, people, and the small
-              everyday moments that make content feel alive.
+            <p className="mt-6 text-deep/85 leading-relaxed font-ar text-lg">
+              طِيب بتقدّم استراتيجية مدروسة و<span className="font-bold text-pink">بيرسونال براندينق</span>
+              {" "}عن طريق <span className="font-bold">storytelling</span> — مش أي محتوى عادي.
+              كتابة محتوى و <span className="font-bold">viral script writing</span> بطريقة غير
+              عشوائية، وكل فكرة <span className="font-bold text-pink">human-generated</span> — مش AI.
             </p>
+            <p className="mt-4 text-deep/70 leading-relaxed">
+              A content writer & strategist building personal brands through
+              real storytelling and intentional viral scripts. Every idea is
+              human-made — not AI-generated. We work with clients who actually
+              have value in their business, and our job is to help them
+              communicate it the right way.
+            </p>
+
+            <div className="mt-6 inline-flex items-center gap-2 bg-pink-soft/60 text-deep px-4 py-2 rounded-full text-sm font-display font-bold">
+              ✦ منشتغل بس مع كلاينت عندهم value حقيقي
+            </div>
 
             <div className="mt-8 grid sm:grid-cols-2 gap-3">
               {[
