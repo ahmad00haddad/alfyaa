@@ -193,13 +193,16 @@ function Home() {
               طِيب العَمد
             </h2>
             <p className="text-cream/60 font-display font-bold mt-1">
-              Teeb Alamad · Social Media Strategist
+              Teeb Alamad · Content Writer & Strategist
             </p>
-            <p className="mt-6 text-cream/85 leading-relaxed">
-              I’m a creative social media strategist with a passion for
-              storytelling, human connection, and turning simple ideas into
-              meaningful content. I believe in content that feels real, adds
-              value, and leaves a lasting impression.
+            <p className="mt-6 text-cream/85 leading-relaxed font-ar text-lg">
+              مش أي محتوى عادي — استراتيجية مدروسة، بيرسونال براندينق مبني على
+              storytelling حقيقي، و viral script writing بطريقة مش عشوائية. كل
+              فكرة <span className="text-pink-soft font-bold">human-generated</span> — مش AI.
+            </p>
+            <p className="mt-4 text-cream/70 leading-relaxed text-sm">
+              Content writer & strategist building personal brands through
+              storytelling and viral scripts — never random, always human.
             </p>
             <Link
               to="/team"
