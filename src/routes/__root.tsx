@@ -74,13 +74,17 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "ALFYAA® — وكالة محتوى من الألف إلى الياء" },
+      { title: "ALFYAA - من الألف إلى الياء" },
       { name: "description", content: "Alfyaa Agency — استراتيجية وإدارة سوشال ميديا، إنتاج محتوى، تصوير ومونتاج. من الألف إلى الياء." },
       { name: "author", content: "Alfyaa Agency" },
-      { property: "og:title", content: "ALFYAA® — Social Media, A to Z" },
-      { property: "og:description", content: "Strategy, content, photography & editing. We hold your page from A to Z." },
+      { property: "og:title", content: "ALFYAA - من الألف إلى الياء" },
+      { property: "og:description", content: "Alfyaa Agency — استراتيجية وإدارة سوشال ميديا، إنتاج محتوى، تصوير ومونتاج. من الألف إلى الياء." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "ALFYAA - من الألف إلى الياء" },
+      { name: "twitter:description", content: "Alfyaa Agency — استراتيجية وإدارة سوشال ميديا، إنتاج محتوى، تصوير ومونتاج. من الألف إلى الياء." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/585fb451-1845-45a9-8a1c-c724acc14db0/id-preview-e0292969--87ca67a2-d03c-419e-bed3-63d354eb5c91.lovable.app-1778273145378.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/585fb451-1845-45a9-8a1c-c724acc14db0/id-preview-e0292969--87ca67a2-d03c-419e-bed3-63d354eb5c91.lovable.app-1778273145378.png" },
     ],
     links: [
       {
