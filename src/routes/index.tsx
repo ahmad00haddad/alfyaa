@@ -1,7 +1,22 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { useEffect, useRef, useState } from "react";
 import heroTv from "@/assets/hero-tv.png";
 import blob from "@/assets/blob-pink.png";
 import { Marquee } from "@/components/Marquee";
+import { MagneticLink } from "@/components/MagneticLink";
+import { ScrollHint } from "@/components/ScrollHint";
+
+/** تحية حسب وقت اليوم (بعد الهايدريشن حتى ما يصير تعارض) */
+function useGreeting() {
+  const [g, setG] = useState<string | null>(null);
+  useEffect(() => {
+    const h = new Date().getHours();
+    setG(
+      h < 5 ? "سهرانين؟" : h < 12 ? "صباح الخير" : h < 17 ? "مساء الخير" : h < 22 ? "مسا الخير" : "ليلة هادية",
+    );
+  }, []);
+  return g;
+}
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -19,10 +34,26 @@ export const Route = createFileRoute("/")({
 });
 
 function Home() {
+  const greeting = useGreeting();
+  const heroRef = useRef<HTMLElement>(null);
+  const [blobPos, setBlobPos] = useState({ x: 0, y: 0 });
+  const [tvTouched, setTvTouched] = useState(false);
+
   return (
     <>
       {/* HERO */}
-      <section className="relative overflow-hidden bg-cream grain">
+      <section
+        ref={heroRef}
+        className="relative overflow-hidden bg-cream grain"
+        onMouseMove={(e) => {
+          const r = heroRef.current?.getBoundingClientRect();
+          if (!r) return;
+          setBlobPos({
+            x: ((e.clientX - r.left) / r.width - 0.5) * 60,
+            y: ((e.clientY - r.top) / r.height - 0.5) * 60,
+          });
+        }}
+      >
         <div
           className="absolute -top-32 -left-32 w-[520px] h-[520px] rounded-full opacity-60 blur-3xl"
           style={{ background: "var(--mint)" }}
@@ -32,13 +63,24 @@ function Home() {
           alt=""
           aria-hidden
           className="absolute -bottom-24 -right-24 w-[420px] opacity-80 spin-slow"
+          style={{
+            translate: `${blobPos.x}px ${blobPos.y}px`,
+            transition: "translate 700ms cubic-bezier(.2,.8,.2,1)",
+          }}
         />
 
-        <div className="relative mx-auto max-w-7xl px-5 lg:px-8 pt-16 lg:pt-24 pb-24 grid lg:grid-cols-12 gap-10 items-center">
+        <div className="relative mx-auto max-w-7xl px-5 lg:px-8 pt-16 lg:pt-24 pb-28 grid lg:grid-cols-12 gap-10 items-center">
           <div className="lg:col-span-7 text-right">
-            <span className="inline-flex items-center gap-2 bg-deep text-cream px-4 py-1.5 rounded-full text-xs font-display font-bold tracking-widest -rotate-2">
-              ALFYAA® · من الألف إلى الياء
-            </span>
+            <div className="flex flex-wrap items-center gap-3 justify-end">
+              {greeting && (
+                <span className="font-script text-pink text-2xl">
+                  {greeting} ✦
+                </span>
+              )}
+              <span className="inline-flex items-center gap-2 bg-deep text-cream px-4 py-1.5 rounded-full text-xs font-display font-bold tracking-widest -rotate-2">
+                ALFYAA® · من الألف إلى الياء
+              </span>
+            </div>
 
             <h1
               className="mt-6 font-arabic-display font-black text-pink leading-[0.9] text-[18vw] sm:text-[14vw] lg:text-[10rem]"
@@ -58,12 +100,12 @@ function Home() {
             </p>
 
             <div className="mt-8 flex flex-wrap gap-4 justify-end">
-              <Link
+              <MagneticLink
                 to="/contact"
-                className="bg-pink text-primary-foreground px-7 py-4 rounded-full font-display font-black text-lg shadow-pop hover:translate-x-[-3px] hover:translate-y-[-3px] transition-transform"
+                className="bg-pink text-primary-foreground px-7 py-4 rounded-full font-display font-black text-lg shadow-pop inline-block"
               >
                 ابدأ مشروعك ↗
-              </Link>
+              </MagneticLink>
               <Link
                 to="/services"
                 className="bg-cream border-2 border-deep text-deep px-7 py-4 rounded-full font-display font-black text-lg hover:bg-deep hover:text-cream transition-colors"
@@ -72,7 +114,12 @@ function Home() {
               </Link>
             </div>
 
-            <div className="mt-10 flex flex-wrap gap-6 justify-end text-deep/70 text-sm font-display font-bold uppercase tracking-widest">
+            <div className="mt-6 inline-flex items-center gap-2 text-deep/70 text-sm font-ar">
+              <span className="inline-block w-2 h-2 rounded-full bg-pink animate-pulse" />
+              منرد عادةً خلال ٢٤ ساعة
+            </div>
+
+            <div className="mt-8 flex flex-wrap gap-6 justify-end text-deep/70 text-sm font-display font-bold uppercase tracking-widest">
               <span>Strategy</span><span>·</span>
               <span>Content</span><span>·</span>
               <span>Production</span><span>·</span>
@@ -81,16 +128,34 @@ function Home() {
           </div>
 
           <div className="lg:col-span-5 relative">
-            <img
-              src={heroTv}
-              alt="Funky retro TV with Alfyaa logo on screen"
-              className="w-full max-w-[520px] mx-auto float-slow drop-shadow-2xl"
-              width={1024}
-              height={1024}
-            />
+            <div
+              className="relative"
+              onMouseEnter={() => setTvTouched(true)}
+              onClick={() => setTvTouched(true)}
+            >
+              <img
+                src={heroTv}
+                alt="Funky retro TV with Alfyaa logo on screen"
+                className={`w-full max-w-[520px] mx-auto float-slow drop-shadow-2xl transition-transform duration-500 ${
+                  tvTouched ? "scale-[1.04] rotate-1" : ""
+                }`}
+                width={1024}
+                height={1024}
+              />
+              <span
+                className={`absolute top-2 right-2 md:right-8 bg-deep text-cream px-3 py-1.5 rounded-full text-xs font-display font-bold rotate-3 transition-opacity duration-500 ${
+                  tvTouched ? "opacity-0" : "opacity-100"
+                }`}
+              >
+                لمسني ✦ touch me
+              </span>
+            </div>
           </div>
         </div>
+
+        <ScrollHint />
       </section>
+
 
       <Marquee
         items={[
