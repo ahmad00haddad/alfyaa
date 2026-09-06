@@ -1,7 +1,22 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { useEffect, useRef, useState } from "react";
 import heroTv from "@/assets/hero-tv.png";
 import blob from "@/assets/blob-pink.png";
 import { Marquee } from "@/components/Marquee";
+import { MagneticLink } from "@/components/MagneticLink";
+import { ScrollHint } from "@/components/ScrollHint";
+
+/** تحية حسب وقت اليوم (بعد الهايدريشن حتى ما يصير تعارض) */
+function useGreeting() {
+  const [g, setG] = useState<string | null>(null);
+  useEffect(() => {
+    const h = new Date().getHours();
+    setG(
+      h < 5 ? "سهرانين؟" : h < 12 ? "صباح الخير" : h < 17 ? "مساء الخير" : h < 22 ? "مسا الخير" : "ليلة هادية",
+    );
+  }, []);
+  return g;
+}
 
 export const Route = createFileRoute("/")({
   head: () => ({
