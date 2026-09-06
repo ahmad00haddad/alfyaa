@@ -2,7 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { useRef, useState, type ReactNode } from "react";
 
 type Props = {
-  to: string;
+  to: "/" | "/services" | "/team" | "/tips" | "/contact";
   className?: string;
   children: ReactNode;
   strength?: number;
@@ -15,7 +15,6 @@ export function MagneticLink({ to, className, children, strength = 14 }: Props) 
 
   return (
     <Link
-      // @ts-expect-error route paths are validated at build time
       to={to}
       ref={ref}
       className={className}
