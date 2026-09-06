@@ -120,6 +120,7 @@ function RootComponent() {
   return (
     <QueryClientProvider client={queryClient}>
       <div className="min-h-screen flex flex-col">
+        <ScrollProgress />
         <SiteHeader />
         <main className="flex-1">
           <Outlet />
