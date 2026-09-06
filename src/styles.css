@@ -1,11 +1,10 @@
 @import "tailwindcss" source(none);
-@source "../src";
 @import "tw-animate-css";
-
-@custom-variant dark (&:is(.dark *));
-
 /* Google fonts - funky display + readable Arabic */
 @import url("https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,700;12..96,800&family=Space+Grotesk:wght@400;500;700&family=Caveat:wght@600;700&family=Tajawal:wght@400;500;700;900&family=Cairo:wght@400;700;900&display=swap");
+@source "../src";
+
+@custom-variant dark (&:is(.dark *));
 
 @theme inline {
   --radius-sm: calc(var(--radius) - 4px);
