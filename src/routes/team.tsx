@@ -1,4 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { useEffect, useRef, useState } from "react";
 
 export const Route = createFileRoute("/team")({
   head: () => ({
@@ -8,6 +9,18 @@ export const Route = createFileRoute("/team")({
         name: "description",
         content:
           "تعرّف على طِيب العَمد، مديرة الفياء، والفريق الإبداعي خلف كل صفحة.",
+      },
+      { property: "og:title", content: "الفريق — ALFYAA®" },
+      {
+        property: "og:description",
+        content: "ناس بتحب اللي بتعمله — التيم الإبداعي خلف كل صفحة.",
+      },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "الفريق — ALFYAA®" },
+      {
+        name: "twitter:description",
+        content: "ناس بتحب اللي بتعمله — التيم الإبداعي خلف كل صفحة.",
       },
     ],
   }),
@@ -20,6 +33,66 @@ const crew = [
   { ar: "مونتيرة", en: "Video Editor", letter: "م", c: "bg-pink text-cream" },
   { ar: "مصمم جرافيك", en: "Graphic Designer", letter: "ج", c: "bg-deep text-cream" },
 ];
+
+const quotes = [
+  "المحتوى مش كثرة نشر — المحتوى نيّة واضحة.",
+  "كل براند عنده قصة، شغلتنا نلاقي الزاوية الصح.",
+  "الفايرال مش صدفة — الفايرال سكربت مكتوب بعقل.",
+  "منشتغل مع ناس عندهم شي يستاهل يُحكى.",
+];
+
+/** كتابة تدريجية للمسمّى الوظيفي */
+function Typewriter({ text }: { text: string }) {
+  const [n, setN] = useState(0);
+  useEffect(() => {
+    setN(0);
+    const id = setInterval(() => setN((v) => (v >= text.length ? v : v + 1)), 45);
+    return () => clearInterval(id);
+  }, [text]);
+  return (
+    <span>
+      {text.slice(0, n)}
+      <span className="text-pink animate-pulse">|</span>
+    </span>
+  );
+}
+
+/** كرت يميل ٣D حسب المؤشر */
+function TiltCard({
+  className,
+  style,
+  children,
+}: {
+  className?: string;
+  style?: React.CSSProperties;
+  children: React.ReactNode;
+}) {
+  const ref = useRef<HTMLDivElement>(null);
+  const [t, setT] = useState({ x: 0, y: 0 });
+  return (
+    <div
+      ref={ref}
+      className={className}
+      style={{
+        ...style,
+        transform: `${style?.transform ?? ""} perspective(800px) rotateX(${t.y}deg) rotateY(${t.x}deg)`,
+        transition: t.x === 0 && t.y === 0 ? "transform 500ms cubic-bezier(.2,.8,.2,1)" : "transform 90ms linear",
+      }}
+      onMouseMove={(e) => {
+        const r = ref.current?.getBoundingClientRect();
+        if (!r) return;
+        setT({
+          x: ((e.clientX - (r.left + r.width / 2)) / (r.width / 2)) * 8,
+          y: -((e.clientY - (r.top + r.height / 2)) / (r.height / 2)) * 8,
+        });
+      }}
+      onMouseLeave={() => setT({ x: 0, y: 0 })}
+    >
+      {children}
+    </div>
+  );
+}
+
 
 function Team() {
   return (
