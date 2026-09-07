@@ -224,20 +224,24 @@ function Team() {
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {crew.map((m, i) => (
-              <div
+              <TiltCard
                 key={m.en}
-                className={`${m.c} rounded-3xl p-7 aspect-[4/5] flex flex-col justify-between shadow-pop`}
+                className={`group ${m.c} rounded-3xl p-7 aspect-[4/5] flex flex-col justify-between shadow-pop`}
                 style={{ transform: `rotate(${i % 2 ? 1.5 : -1.5}deg)` }}
               >
-                <span className="text-[8rem] leading-none font-arabic-display font-black opacity-90">
+                <span className="text-[8rem] leading-none font-arabic-display font-black opacity-90 transition-transform duration-500 group-hover:scale-110 origin-top-right inline-block">
                   {m.letter}
                 </span>
                 <div>
                   <h3 className="text-2xl font-arabic-display font-black">{m.ar}</h3>
                   <p className="font-display font-bold opacity-80 text-sm">{m.en}</p>
+                  <p className="mt-2 text-xs font-ar opacity-0 -translate-y-1 transition-all duration-300 group-hover:opacity-80 group-hover:translate-y-0">
+                    جزء من التيم المخصّص لكل كلاينت
+                  </p>
                 </div>
-              </div>
+              </TiltCard>
             ))}
+
           </div>
 
           <div className="text-center mt-14">
