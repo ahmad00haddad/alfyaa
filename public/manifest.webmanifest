@@ -1,0 +1,19 @@
+{
+  "id": "/",
+  "name": "ALFYAA® — الفياء",
+  "short_name": "الفياء",
+  "description": "وكالة محتوى ديجيتال متكاملة — ستراتيجي، تصوير، مونتاج، ونشر. من الألف إلى الياء.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "dir": "rtl",
+  "lang": "ar",
+  "background_color": "#f7f3eb",
+  "theme_color": "#dd5398",
+  "icons": [
+    { "src": "/icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "/icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "/icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}
