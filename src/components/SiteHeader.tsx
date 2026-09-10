@@ -53,27 +53,37 @@ export function SiteHeader() {
 
         <button
           onClick={() => setOpen(!open)}
-          className="md:hidden p-2 rounded-full bg-deep text-cream"
+          className="md:hidden grid h-11 w-11 shrink-0 place-items-center rounded-full bg-deep text-cream text-lg active:scale-95 transition-transform"
           aria-label="Menu"
+          aria-expanded={open}
         >
           {open ? "✕" : "☰"}
         </button>
+        </div>
       </div>
 
       {open && (
-        <div className="md:hidden border-t border-deep/10 bg-cream px-5 py-4 flex flex-col gap-2">
+        <div className="md:hidden border-t border-deep/10 bg-cream px-4 py-4 flex flex-col gap-2 pb-safe">
           {nav.map((n) => (
             <Link
               key={n.to}
               to={n.to}
               onClick={() => setOpen(false)}
-              className="px-4 py-3 rounded-xl bg-mint/30 font-display font-bold text-deep"
+              className="px-4 py-3.5 rounded-2xl bg-mint/30 font-display font-bold text-deep active:scale-[0.98] transition-transform"
             >
               <span className="font-ar">{n.ar}</span> · {n.en}
             </Link>
           ))}
+          <Link
+            to="/contact"
+            onClick={() => setOpen(false)}
+            className="mt-1 px-4 py-3.5 rounded-2xl bg-deep text-cream text-center font-display font-bold active:scale-[0.98] transition-transform"
+          >
+            ابدأ معنا ↗
+          </Link>
         </div>
       )}
+
     </header>
   );
 }
