@@ -117,7 +117,20 @@ function Contact() {
             }}
           >
             {sent ? (
-              <div className="text-center py-16 animate-scale-in">
+              <div className="relative text-center py-16 animate-scale-in overflow-hidden">
+                <div className="pointer-events-none absolute inset-0">
+                  {Array.from({ length: 26 }).map((_, i) => (
+                    <span
+                      key={i}
+                      className="absolute top-0 block h-2.5 w-2.5 rounded-sm"
+                      style={{
+                        left: `${(i * 3.8) % 100}%`,
+                        background: i % 3 === 0 ? "var(--pink)" : i % 3 === 1 ? "var(--mint)" : "var(--pink-soft)",
+                        animation: `confetti-fall ${1.6 + (i % 5) * 0.35}s ease-in ${(i % 7) * 0.12}s forwards`,
+                      }}
+                    />
+                  ))}
+                </div>
                 <div className="text-7xl">✦</div>
                 <h3 className="mt-6 text-3xl font-arabic-display font-black text-pink">
                   وصلنا طلبك!
