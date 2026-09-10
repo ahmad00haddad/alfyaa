@@ -89,12 +89,20 @@
 
 @layer base {
   * { border-color: var(--color-border); }
-  html { scroll-behavior: smooth; }
+  html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+  }
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+    -webkit-tap-highlight-color: transparent;
+    overscroll-behavior-y: none;
   }
   [dir="rtl"] body, .font-ar { font-family: var(--font-arabic); }
   h1, h2, h3, h4 { font-family: var(--font-display); letter-spacing: -0.02em; }
@@ -102,7 +110,22 @@
     font-family: var(--font-arabic-display);
     letter-spacing: 0;
   }
+  h1, h2, h3, p { overflow-wrap: break-word; }
+  button, a { touch-action: manipulation; }
+  @media (max-width: 767px) {
+    .shadow-pop { box-shadow: 4px 4px 0 0 var(--deep); }
+    .shadow-pop-pink { box-shadow: 4px 4px 0 0 var(--pink); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
 }
+
 
 @layer utilities {
   .bg-gradient-funky { background-image: var(--gradient-funky); }
