@@ -173,23 +173,24 @@ function Home() {
       />
 
       {/* PHILOSOPHY */}
-      <section className="bg-mint py-24 relative overflow-hidden">
+      <section className="bg-mint py-16 md:py-24 relative overflow-hidden">
         <div className="absolute inset-0 opacity-[0.07] pointer-events-none">
-          <div className="grid grid-cols-6 md:grid-cols-12 gap-2 p-4 text-deep font-arabic-display text-3xl">
+          <div className="grid grid-cols-6 md:grid-cols-12 gap-2 p-4 text-deep font-arabic-display text-2xl sm:text-3xl">
             {Array.from({ length: 96 }).map((_, i) => (
               <span key={i}>الفياء</span>
             ))}
           </div>
         </div>
-        <div className="relative mx-auto max-w-5xl px-5 text-center">
-          <span className="inline-block bg-deep text-cream px-4 py-1.5 rounded-full text-xs font-display font-bold tracking-widest">
+        <div className="relative mx-auto max-w-5xl px-4 sm:px-5 text-center">
+          <span className="inline-block bg-deep text-cream px-4 py-1.5 rounded-full text-[11px] sm:text-xs font-display font-bold tracking-widest">
             THE PHILOSOPHY · الفلسفة
           </span>
-          <h2 className="mt-6 text-4xl md:text-6xl font-arabic-display font-black text-deep leading-tight">
+          <h2 className="mt-6 text-3xl sm:text-4xl md:text-6xl font-arabic-display font-black text-deep leading-tight">
             من <span className="text-pink">الألف</span> إلى{" "}
             <span className="text-pink">الياء</span>
           </h2>
-          <p className="mt-6 text-deep/85 text-lg md:text-xl leading-loose font-ar max-w-3xl mx-auto">
+          <p className="mt-6 text-deep/85 text-base sm:text-lg md:text-xl leading-loose font-ar max-w-3xl mx-auto">
+
             الفياء متّصلة، لأنه ما في مسافة. بعالم السوشال ميديا والديجيتال
             المسافة ما بتوجد — لهيك اختصرنا الحروف اللي بالنص، وضلّينا الأول
             والآخر. كل اللي بينهم… شغلنا.
@@ -202,24 +203,24 @@ function Home() {
       </section>
 
       {/* SERVICES TEASE */}
-      <section className="bg-cream py-24">
-        <div className="mx-auto max-w-7xl px-5 lg:px-8">
-          <div className="flex items-end justify-between flex-wrap gap-4 mb-12">
-            <div className="text-right">
-              <span className="text-pink font-script text-3xl">what we do</span>
-              <h2 className="text-4xl md:text-6xl font-arabic-display font-black text-deep">
+      <section className="bg-cream py-16 md:py-24">
+        <div className="mx-auto max-w-7xl px-4 sm:px-5 lg:px-8">
+          <div className="flex items-end justify-between flex-wrap gap-3 mb-8 md:mb-12">
+            <div className="min-w-0 text-right">
+              <span className="text-pink font-script text-2xl sm:text-3xl">what we do</span>
+              <h2 className="text-3xl sm:text-4xl md:text-6xl font-arabic-display font-black text-deep">
                 خدماتنا
               </h2>
             </div>
             <Link
               to="/services"
-              className="text-deep font-display font-bold underline underline-offset-4 decoration-pink decoration-4"
+              className="shrink-0 text-deep font-display font-bold text-sm sm:text-base underline underline-offset-4 decoration-pink decoration-4"
             >
               كل الخدمات ↗
             </Link>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
             {[
               { ar: "ستراتيجي", en: "Strategy", emoji: "✦", c: "bg-pink text-cream" },
               { ar: "محتوى", en: "Content", emoji: "✿", c: "bg-mint text-deep" },
@@ -228,14 +229,15 @@ function Home() {
             ].map((s, i) => (
               <div
                 key={s.en}
-                className={`${s.c} rounded-3xl p-7 shadow-pop hover:-translate-y-2 transition-transform`}
+                className={`${s.c} rounded-3xl p-5 sm:p-7 shadow-pop hover:-translate-y-2 transition-transform`}
                 style={{ transform: `rotate(${i % 2 === 0 ? -1.5 : 1.5}deg)` }}
               >
-                <div className="text-5xl mb-6">{s.emoji}</div>
-                <h3 className="text-3xl font-arabic-display font-black">{s.ar}</h3>
-                <p className="mt-1 font-display font-bold opacity-80">{s.en}</p>
+                <div className="text-3xl sm:text-5xl mb-4 sm:mb-6">{s.emoji}</div>
+                <h3 className="text-2xl sm:text-3xl font-arabic-display font-black">{s.ar}</h3>
+                <p className="mt-1 font-display font-bold text-sm sm:text-base opacity-80">{s.en}</p>
               </div>
             ))}
+
           </div>
         </div>
       </section>
