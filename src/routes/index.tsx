@@ -55,22 +55,23 @@ function Home() {
         }}
       >
         <div
-          className="absolute -top-32 -left-32 w-[520px] h-[520px] rounded-full opacity-60 blur-3xl"
+          className="absolute -top-32 -left-32 w-[320px] h-[320px] sm:w-[520px] sm:h-[520px] rounded-full opacity-60 blur-3xl"
           style={{ background: "var(--mint)" }}
         />
         <img
           src={blob}
           alt=""
           aria-hidden
-          className="absolute -bottom-24 -right-24 w-[420px] opacity-80 spin-slow"
+          className="absolute -bottom-24 -right-24 w-[260px] sm:w-[420px] opacity-80 spin-slow"
           style={{
             translate: `${blobPos.x}px ${blobPos.y}px`,
             transition: "translate 700ms cubic-bezier(.2,.8,.2,1)",
           }}
         />
 
-        <div className="relative mx-auto max-w-7xl px-5 lg:px-8 pt-16 lg:pt-24 pb-28 grid lg:grid-cols-12 gap-10 items-center">
+        <div className="relative mx-auto max-w-7xl px-4 sm:px-5 lg:px-8 pt-10 sm:pt-16 lg:pt-24 pb-20 sm:pb-28 grid lg:grid-cols-12 gap-8 sm:gap-10 items-center">
           <div className="lg:col-span-7 text-right">
+
             <div className="flex flex-wrap items-center gap-3 justify-end">
               {greeting && (
                 <span className="font-script text-pink text-2xl">
@@ -83,48 +84,50 @@ function Home() {
             </div>
 
             <h1
-              className="mt-6 font-arabic-display font-black text-pink leading-[0.9] text-[18vw] sm:text-[14vw] lg:text-[10rem]"
-              style={{ textShadow: "8px 8px 0 var(--deep)" }}
+              className="mt-5 sm:mt-6 font-arabic-display font-black text-pink leading-[0.9] text-[22vw] sm:text-[14vw] lg:text-[10rem]"
+              style={{ textShadow: "5px 5px 0 var(--deep)" }}
             >
               الفياء
             </h1>
 
-            <p className="mt-6 text-2xl md:text-3xl font-bold text-deep leading-snug font-ar">
+            <p className="mt-5 sm:mt-6 text-xl sm:text-2xl md:text-3xl font-bold text-deep leading-snug font-ar">
               ما في مسافة بينك وبين جمهورك. <br className="hidden md:block" />
               <span className="squiggle-underline">احنا اللي بنمسكها.</span>
             </p>
 
-            <p className="mt-5 text-deep/80 text-lg max-w-xl ms-auto font-ar leading-relaxed">
+            <p className="mt-4 sm:mt-5 text-deep/80 text-base sm:text-lg max-w-xl ms-auto font-ar leading-relaxed">
               وكالة محتوى ديجيتال متكاملة — ستراتيجي، تصوير، مونتاج، نشر، وكل
               اللي تحتاجه صفحتك تكبر وتتفاعل.
             </p>
 
-            <div className="mt-8 flex flex-wrap gap-4 justify-end">
+            <div className="mt-7 sm:mt-8 grid grid-cols-1 sm:flex sm:flex-wrap gap-3 sm:gap-4 sm:justify-end">
               <MagneticLink
                 to="/contact"
-                className="bg-pink text-primary-foreground px-7 py-4 rounded-full font-display font-black text-lg shadow-pop inline-block"
+                className="bg-pink text-primary-foreground px-7 py-4 rounded-full font-display font-black text-base sm:text-lg shadow-pop inline-block text-center active:scale-[0.98] transition-transform"
               >
                 ابدأ مشروعك ↗
               </MagneticLink>
               <Link
                 to="/services"
-                className="bg-cream border-2 border-deep text-deep px-7 py-4 rounded-full font-display font-black text-lg hover:bg-deep hover:text-cream transition-colors"
+                className="bg-cream border-2 border-deep text-deep px-7 py-4 rounded-full font-display font-black text-base sm:text-lg text-center hover:bg-deep hover:text-cream active:scale-[0.98] transition-all"
               >
                 شو منعمل؟
               </Link>
             </div>
+
 
             <div className="mt-6 inline-flex items-center gap-2 text-deep/70 text-sm font-ar">
               <span className="inline-block w-2 h-2 rounded-full bg-pink animate-pulse" />
               منرد عادةً خلال ٢٤ ساعة
             </div>
 
-            <div className="mt-8 flex flex-wrap gap-6 justify-end text-deep/70 text-sm font-display font-bold uppercase tracking-widest">
+            <div className="mt-7 sm:mt-8 flex flex-wrap gap-3 sm:gap-6 justify-end text-deep/70 text-[11px] sm:text-sm font-display font-bold uppercase tracking-widest">
               <span>Strategy</span><span>·</span>
               <span>Content</span><span>·</span>
               <span>Production</span><span>·</span>
               <span>Editing</span>
             </div>
+
           </div>
 
           <div className="lg:col-span-5 relative">
