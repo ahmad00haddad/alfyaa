@@ -55,22 +55,23 @@ function Home() {
         }}
       >
         <div
-          className="absolute -top-32 -left-32 w-[520px] h-[520px] rounded-full opacity-60 blur-3xl"
+          className="absolute -top-32 -left-32 w-[320px] h-[320px] sm:w-[520px] sm:h-[520px] rounded-full opacity-60 blur-3xl"
           style={{ background: "var(--mint)" }}
         />
         <img
           src={blob}
           alt=""
           aria-hidden
-          className="absolute -bottom-24 -right-24 w-[420px] opacity-80 spin-slow"
+          className="absolute -bottom-24 -right-24 w-[260px] sm:w-[420px] opacity-80 spin-slow"
           style={{
             translate: `${blobPos.x}px ${blobPos.y}px`,
             transition: "translate 700ms cubic-bezier(.2,.8,.2,1)",
           }}
         />
 
-        <div className="relative mx-auto max-w-7xl px-5 lg:px-8 pt-16 lg:pt-24 pb-28 grid lg:grid-cols-12 gap-10 items-center">
+        <div className="relative mx-auto max-w-7xl px-4 sm:px-5 lg:px-8 pt-10 sm:pt-16 lg:pt-24 pb-20 sm:pb-28 grid lg:grid-cols-12 gap-8 sm:gap-10 items-center">
           <div className="lg:col-span-7 text-right">
+
             <div className="flex flex-wrap items-center gap-3 justify-end">
               {greeting && (
                 <span className="font-script text-pink text-2xl">
@@ -83,48 +84,50 @@ function Home() {
             </div>
 
             <h1
-              className="mt-6 font-arabic-display font-black text-pink leading-[0.9] text-[18vw] sm:text-[14vw] lg:text-[10rem]"
-              style={{ textShadow: "8px 8px 0 var(--deep)" }}
+              className="mt-5 sm:mt-6 font-arabic-display font-black text-pink leading-[0.9] text-[22vw] sm:text-[14vw] lg:text-[10rem]"
+              style={{ textShadow: "5px 5px 0 var(--deep)" }}
             >
               الفياء
             </h1>
 
-            <p className="mt-6 text-2xl md:text-3xl font-bold text-deep leading-snug font-ar">
+            <p className="mt-5 sm:mt-6 text-xl sm:text-2xl md:text-3xl font-bold text-deep leading-snug font-ar">
               ما في مسافة بينك وبين جمهورك. <br className="hidden md:block" />
               <span className="squiggle-underline">احنا اللي بنمسكها.</span>
             </p>
 
-            <p className="mt-5 text-deep/80 text-lg max-w-xl ms-auto font-ar leading-relaxed">
+            <p className="mt-4 sm:mt-5 text-deep/80 text-base sm:text-lg max-w-xl ms-auto font-ar leading-relaxed">
               وكالة محتوى ديجيتال متكاملة — ستراتيجي، تصوير، مونتاج، نشر، وكل
               اللي تحتاجه صفحتك تكبر وتتفاعل.
             </p>
 
-            <div className="mt-8 flex flex-wrap gap-4 justify-end">
+            <div className="mt-7 sm:mt-8 grid grid-cols-1 sm:flex sm:flex-wrap gap-3 sm:gap-4 sm:justify-end">
               <MagneticLink
                 to="/contact"
-                className="bg-pink text-primary-foreground px-7 py-4 rounded-full font-display font-black text-lg shadow-pop inline-block"
+                className="bg-pink text-primary-foreground px-7 py-4 rounded-full font-display font-black text-base sm:text-lg shadow-pop inline-block text-center active:scale-[0.98] transition-transform"
               >
                 ابدأ مشروعك ↗
               </MagneticLink>
               <Link
                 to="/services"
-                className="bg-cream border-2 border-deep text-deep px-7 py-4 rounded-full font-display font-black text-lg hover:bg-deep hover:text-cream transition-colors"
+                className="bg-cream border-2 border-deep text-deep px-7 py-4 rounded-full font-display font-black text-base sm:text-lg text-center hover:bg-deep hover:text-cream active:scale-[0.98] transition-all"
               >
                 شو منعمل؟
               </Link>
             </div>
+
 
             <div className="mt-6 inline-flex items-center gap-2 text-deep/70 text-sm font-ar">
               <span className="inline-block w-2 h-2 rounded-full bg-pink animate-pulse" />
               منرد عادةً خلال ٢٤ ساعة
             </div>
 
-            <div className="mt-8 flex flex-wrap gap-6 justify-end text-deep/70 text-sm font-display font-bold uppercase tracking-widest">
+            <div className="mt-7 sm:mt-8 flex flex-wrap gap-3 sm:gap-6 justify-end text-deep/70 text-[11px] sm:text-sm font-display font-bold uppercase tracking-widest">
               <span>Strategy</span><span>·</span>
               <span>Content</span><span>·</span>
               <span>Production</span><span>·</span>
               <span>Editing</span>
             </div>
+
           </div>
 
           <div className="lg:col-span-5 relative">
@@ -170,23 +173,24 @@ function Home() {
       />
 
       {/* PHILOSOPHY */}
-      <section className="bg-mint py-24 relative overflow-hidden">
+      <section className="bg-mint py-16 md:py-24 relative overflow-hidden">
         <div className="absolute inset-0 opacity-[0.07] pointer-events-none">
-          <div className="grid grid-cols-6 md:grid-cols-12 gap-2 p-4 text-deep font-arabic-display text-3xl">
+          <div className="grid grid-cols-6 md:grid-cols-12 gap-2 p-4 text-deep font-arabic-display text-2xl sm:text-3xl">
             {Array.from({ length: 96 }).map((_, i) => (
               <span key={i}>الفياء</span>
             ))}
           </div>
         </div>
-        <div className="relative mx-auto max-w-5xl px-5 text-center">
-          <span className="inline-block bg-deep text-cream px-4 py-1.5 rounded-full text-xs font-display font-bold tracking-widest">
+        <div className="relative mx-auto max-w-5xl px-4 sm:px-5 text-center">
+          <span className="inline-block bg-deep text-cream px-4 py-1.5 rounded-full text-[11px] sm:text-xs font-display font-bold tracking-widest">
             THE PHILOSOPHY · الفلسفة
           </span>
-          <h2 className="mt-6 text-4xl md:text-6xl font-arabic-display font-black text-deep leading-tight">
+          <h2 className="mt-6 text-3xl sm:text-4xl md:text-6xl font-arabic-display font-black text-deep leading-tight">
             من <span className="text-pink">الألف</span> إلى{" "}
             <span className="text-pink">الياء</span>
           </h2>
-          <p className="mt-6 text-deep/85 text-lg md:text-xl leading-loose font-ar max-w-3xl mx-auto">
+          <p className="mt-6 text-deep/85 text-base sm:text-lg md:text-xl leading-loose font-ar max-w-3xl mx-auto">
+
             الفياء متّصلة، لأنه ما في مسافة. بعالم السوشال ميديا والديجيتال
             المسافة ما بتوجد — لهيك اختصرنا الحروف اللي بالنص، وضلّينا الأول
             والآخر. كل اللي بينهم… شغلنا.
@@ -199,24 +203,24 @@ function Home() {
       </section>
 
       {/* SERVICES TEASE */}
-      <section className="bg-cream py-24">
-        <div className="mx-auto max-w-7xl px-5 lg:px-8">
-          <div className="flex items-end justify-between flex-wrap gap-4 mb-12">
-            <div className="text-right">
-              <span className="text-pink font-script text-3xl">what we do</span>
-              <h2 className="text-4xl md:text-6xl font-arabic-display font-black text-deep">
+      <section className="bg-cream py-16 md:py-24">
+        <div className="mx-auto max-w-7xl px-4 sm:px-5 lg:px-8">
+          <div className="flex items-end justify-between flex-wrap gap-3 mb-8 md:mb-12">
+            <div className="min-w-0 text-right">
+              <span className="text-pink font-script text-2xl sm:text-3xl">what we do</span>
+              <h2 className="text-3xl sm:text-4xl md:text-6xl font-arabic-display font-black text-deep">
                 خدماتنا
               </h2>
             </div>
             <Link
               to="/services"
-              className="text-deep font-display font-bold underline underline-offset-4 decoration-pink decoration-4"
+              className="shrink-0 text-deep font-display font-bold text-sm sm:text-base underline underline-offset-4 decoration-pink decoration-4"
             >
               كل الخدمات ↗
             </Link>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
             {[
               { ar: "ستراتيجي", en: "Strategy", emoji: "✦", c: "bg-pink text-cream" },
               { ar: "محتوى", en: "Content", emoji: "✿", c: "bg-mint text-deep" },
@@ -225,14 +229,15 @@ function Home() {
             ].map((s, i) => (
               <div
                 key={s.en}
-                className={`${s.c} rounded-3xl p-7 shadow-pop hover:-translate-y-2 transition-transform`}
+                className={`${s.c} rounded-3xl p-5 sm:p-7 shadow-pop hover:-translate-y-2 transition-transform`}
                 style={{ transform: `rotate(${i % 2 === 0 ? -1.5 : 1.5}deg)` }}
               >
-                <div className="text-5xl mb-6">{s.emoji}</div>
-                <h3 className="text-3xl font-arabic-display font-black">{s.ar}</h3>
-                <p className="mt-1 font-display font-bold opacity-80">{s.en}</p>
+                <div className="text-3xl sm:text-5xl mb-4 sm:mb-6">{s.emoji}</div>
+                <h3 className="text-2xl sm:text-3xl font-arabic-display font-black">{s.ar}</h3>
+                <p className="mt-1 font-display font-bold text-sm sm:text-base opacity-80">{s.en}</p>
               </div>
             ))}
+
           </div>
         </div>
       </section>
