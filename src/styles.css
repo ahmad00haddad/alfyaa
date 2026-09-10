@@ -175,3 +175,8 @@
   0% { transform: translateY(-40px) rotate(0deg); opacity: 1; }
   100% { transform: translateY(320px) rotate(540deg); opacity: 0; }
 }
+
+@layer utilities {
+  .pb-safe { padding-bottom: max(1.25rem, env(safe-area-inset-bottom)); }
+  .mb-safe { margin-bottom: env(safe-area-inset-bottom); }
+}
