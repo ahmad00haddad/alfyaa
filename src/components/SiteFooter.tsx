@@ -14,7 +14,7 @@ export function SiteFooter() {
         </div>
       </div>
 
-      <div className="relative mx-auto max-w-7xl px-5 lg:px-8 py-16 grid gap-12 md:grid-cols-3">
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-5 lg:px-8 py-12 md:py-16 grid gap-10 md:gap-12 md:grid-cols-3">
         <div>
           <Logo className="text-5xl" />
           <p className="mt-4 text-cream/70 text-sm leading-relaxed font-ar">
@@ -48,7 +48,7 @@ export function SiteFooter() {
           </p>
         </div>
       </div>
-      <div className="relative border-t border-cream/10 py-5 text-center text-xs text-cream/50">
+      <div className="relative border-t border-cream/10 py-5 pb-safe text-center text-xs text-cream/50">
         <button
           type="button"
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
