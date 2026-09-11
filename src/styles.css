@@ -91,7 +91,6 @@
   * { border-color: var(--color-border); }
   html {
     scroll-behavior: smooth;
-    overflow-x: hidden;
     -webkit-text-size-adjust: 100%;
     text-size-adjust: 100%;
   }
@@ -100,10 +99,10 @@
     color: var(--color-foreground);
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
-    overflow-x: hidden;
+    overflow-x: clip;
     -webkit-tap-highlight-color: transparent;
-    overscroll-behavior-y: none;
   }
+
   [dir="rtl"] body, .font-ar { font-family: var(--font-arabic); }
   h1, h2, h3, h4 { font-family: var(--font-display); letter-spacing: -0.02em; }
   [dir="rtl"] h1, [dir="rtl"] h2, [dir="rtl"] h3, [dir="rtl"] h4 {
