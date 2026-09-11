@@ -11,7 +11,7 @@ export function Marquee({ items }: { items: string[] }) {
       onMouseLeave={() => setSlow(false)}
     >
       <div
-        className="marquee-track flex whitespace-nowrap items-center font-display font-black text-2xl md:text-3xl"
+        className="marquee-track flex whitespace-nowrap items-center font-display font-black text-xl sm:text-2xl md:text-3xl"
         style={{
           animationDuration: slow ? "90s" : "30s",
           transition: "none",

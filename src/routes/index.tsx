@@ -243,13 +243,14 @@ function Home() {
       </section>
 
       {/* DIRECTOR */}
-      <section className="bg-deep text-cream py-24">
-        <div className="mx-auto max-w-6xl px-5 lg:px-8 grid lg:grid-cols-5 gap-12 items-center">
-          <div className="lg:col-span-2">
+      <section className="bg-deep text-cream py-16 md:py-24">
+        <div className="mx-auto max-w-6xl px-4 sm:px-5 lg:px-8 grid lg:grid-cols-5 gap-8 md:gap-12 items-center">
+          <div className="lg:col-span-2 mx-auto w-full max-w-[280px] lg:max-w-none">
             <div className="aspect-square rounded-[2.5rem] bg-gradient-funky p-1 shadow-pop-pink rotate-3">
               <div className="w-full h-full rounded-[2.2rem] bg-deep flex items-center justify-center">
                 <span
-                  className="text-9xl font-arabic-display font-black text-pink"
+                  className="text-7xl sm:text-9xl font-arabic-display font-black text-pink"
+
                   style={{ textShadow: "6px 6px 0 var(--cream)" }}
                 >
                   ط
@@ -258,14 +259,14 @@ function Home() {
             </div>
           </div>
           <div className="lg:col-span-3">
-            <span className="text-pink-soft font-script text-3xl">director</span>
-            <h2 className="text-4xl md:text-5xl font-arabic-display font-black mt-2">
+            <span className="text-pink-soft font-script text-2xl sm:text-3xl">director</span>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-arabic-display font-black mt-2">
               طِيب العَمد
             </h2>
-            <p className="text-cream/60 font-display font-bold mt-1">
+            <p className="text-cream/60 font-display font-bold text-sm sm:text-base mt-1">
               Teeb Alamad · Content Writer & Strategist
             </p>
-            <p className="mt-6 text-cream/85 leading-relaxed font-ar text-lg">
+            <p className="mt-5 sm:mt-6 text-cream/85 leading-relaxed font-ar text-base sm:text-lg">
               مش أي محتوى عادي — استراتيجية مدروسة، بيرسونال براندينق مبني على
               storytelling حقيقي، و viral script writing بطريقة مش عشوائية. كل
               فكرة <span className="text-pink-soft font-bold">human-generated</span> — مش AI.
@@ -276,7 +277,7 @@ function Home() {
             </p>
             <Link
               to="/team"
-              className="inline-block mt-8 bg-pink text-cream px-6 py-3 rounded-full font-display font-bold shadow-pop hover:-translate-y-1 transition-transform"
+              className="block sm:inline-block text-center mt-7 sm:mt-8 bg-pink text-cream px-6 py-4 sm:py-3 rounded-full font-display font-bold shadow-pop hover:-translate-y-1 active:scale-[0.98] transition-transform"
             >
               تعرّف على الفريق ↗
             </Link>
@@ -285,21 +286,22 @@ function Home() {
       </section>
 
       {/* CTA */}
-      <section className="bg-cream py-24">
-        <div className="mx-auto max-w-5xl px-5 text-center">
-          <h2 className="text-5xl md:text-7xl font-arabic-display font-black text-deep leading-tight">
+      <section className="bg-cream py-16 md:py-24">
+        <div className="mx-auto max-w-5xl px-4 sm:px-5 text-center">
+          <h2 className="text-4xl sm:text-5xl md:text-7xl font-arabic-display font-black text-deep leading-tight">
             صفحتك تستاهل تكون{" "}
             <span className="text-pink">حدث</span>.
           </h2>
-          <p className="mt-6 text-deep/80 text-lg font-ar">
+          <p className="mt-5 sm:mt-6 text-deep/80 text-base sm:text-lg font-ar">
             خلّينا نمسكها من الألف للياء — وانت بس استمتع بالنتيجة.
           </p>
           <Link
             to="/contact"
-            className="inline-block mt-10 bg-deep text-cream px-10 py-5 rounded-full font-display font-black text-xl shadow-pop-pink hover:-translate-y-1 transition-transform"
+            className="block sm:inline-block text-center mt-8 sm:mt-10 bg-deep text-cream px-8 sm:px-10 py-4 sm:py-5 rounded-full font-display font-black text-lg sm:text-xl shadow-pop-pink hover:-translate-y-1 active:scale-[0.98] transition-transform"
           >
             احجز جلسة استشارة ↗
           </Link>
+
         </div>
       </section>
     </>
